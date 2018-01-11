@@ -17,7 +17,10 @@ Simply log on, setup a user profile and a reminder on when to be reminded
 * Use semantic markup for HTML and CSS (adhere to best practices)
 
 ## Technologies Used
-* jquery
+* Node.js
+* Express
+* Sequelize
+* postgres
 * HTML/CSS
 
 # Approach Taken
