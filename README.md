@@ -3,6 +3,8 @@
 Working out is hard, so this app will allow
 
 ## Instructions
+Have an excercise that you need a stronger reminder for?  
+Simply log on, setup a user profile and a reminder on when to be reminded
 
 
 
