@@ -8,7 +8,7 @@ Simply log on, setup a user profile and a reminder on when to be reminded
 
 
 
-##Technical Requirements
+## Technical Requirements
 * Display a game in the browser
 * Switch turns between two players, or switch turns between a player and the computer(AI)
 * Design logic for winning & visually display which player won
@@ -45,9 +45,7 @@ Simply log on, setup a user profile and a reminder on when to be reminded
 * Getting that first card to drop!
 
 # Unsolved Problems
-* figuring out how to dynamically generate only cards for letters based on the word.  Example, if I pull the word CAT, only generate "C" "A" "T"
-* Finish winning condition
-* Add music to each of the draggables and have a theme song that plays during the game... because everyone loves music!
+
 
 # Next Steps
 * Add music
