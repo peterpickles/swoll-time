@@ -3,9 +3,10 @@ var passport = require("../config/passportConfig");
 var db = require("../models");
 var router = express.Router();
 
-router.get("/login", function(req, res){
-	res.render("auth/login");
-}); 
+router.get('/login', function(req, res){
+  res.render('auth/login');
+});
+
 
 router.post("login", passport.authenticate("local", {
 	successRedirect: "/profile",
@@ -36,7 +37,7 @@ router.post("/signup", function(req, res, next){
 		}
 		else {
 			//bad job, you tried to sign up when you should login
-			req.flsh("error", "Email already exists");
+			req.flash("error", "Email already exists");
 			res.redirect("/auth/login");
 		}
 	}).catch(function(err){

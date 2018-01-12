@@ -1,7 +1,8 @@
+require("dotenv").config();
 var passport = require("passport");
 var localStrategy = require('passport-local').Strategy;
 var db = require("../models");
-require("dotenv").config();
+
 
 passport.serializeUser(function(user, callback){
 	callback(null, user.id);
