@@ -4,12 +4,16 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     userId: DataTypes.INTEGER,
     nextnotice: DataTypes.DATE
-  }, {
-    classMethods: {
-      associate: function(models) {
-        models.workout.belongsTo(models.user);
-      }
-    }
+  // }
+  // , {
+  //   classMethods: {
+  //     associate: function(models) {
+  //       models.workout.belongsTo(models.user);
+  //     }
+  //   }
   });
+  workout.associate = function(model) {
+    models.workout.belongsTo(models.user);
+  };
   return workout;
 };

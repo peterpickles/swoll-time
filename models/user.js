@@ -5,12 +5,15 @@ module.exports = (sequelize, DataTypes) => {
     lastname: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        models.user.hasMany(models.workout);
-      }
-    }
+  // }, {
+  //   classMethods: {
+  //     associate: function(models) {
+  //       models.user.hasMany(models.workout);
+  //     }
+  //   }
   });
+  workout.associate = function(model) {
+    models.workout.belongsTo(models.user);
+  };
   return user;
 };
