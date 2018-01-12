@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
   //     }
   //   }
   });
-  workout.associate = function(model) {
-    models.workout.belongsTo(models.user);
+  user.associate = function(models) {
+    models.user.hasMany(models.workout);
   };
   return user;
 };

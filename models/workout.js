@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   //     }
   //   }
   });
-  workout.associate = function(model) {
+  workout.associate = function(models) {
     models.workout.belongsTo(models.user);
   };
   return workout;
