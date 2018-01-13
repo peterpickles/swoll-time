@@ -1,45 +1,19 @@
 'use strict';
-var bcrypt = require('bcrypt');
+var bcrypt = require("bcrypt");
 
 module.exports = (sequelize, DataTypes) => {
   var user = sequelize.define('user', {
     firstname: DataTypes.STRING,
     lastname: DataTypes.STRING,
-    email: {
-      type: DataTypes.STRING,
-      validate:{
-        isEmail:{
-          msg: 'Invalid email address format'
-        }
-      }
-    },
-    password: {
-      type: DataTypes.STRING,
-      validate: {
-        len:{
-          args: [4,32],
-          msg: 'password must be between 4 and 32 characters long'
-        }
-      }
-    }
-  }, { hooks: {
-        beforeCreate: function(pendingUser, options) {
-          if(pendingUser && pendingUser.password){
-            var hash = bcrypt.hashSync(pendingUser.password, 10);
-            pendingUser.password = hash;
-          }
-        }
-      },
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
+    email: {}DataTypes.STRING,
+    password: DataTypes.STRING
   });
-  user.prototype.isValidPassword = function (passwordTyped) {
-    return bcrypt.compareSync(passwordTyped, this.password);
-  }
-  user.prototype.toJSON = function () {
+  user.associate = function(models) {
+    models.user.hasMany(models.workout);
+  };
+  {
+
+  user.prototype.
     var user = this.get();
     delete user.password;
     return user;
