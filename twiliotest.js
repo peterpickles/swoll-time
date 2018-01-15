@@ -7,6 +7,7 @@ var client = new twilio(accountSid, authToken);
 client.messages.create({
     body: 'Hello with node',
     to: '+12063493377',  // Text this number
+    //might try google voice phone number
     from: "+12065020895", // From a valid Twilio number
 })
 .then((message) => console.log(message.sid));

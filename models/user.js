@@ -1,6 +1,4 @@
 'use strict';
-var bcrypt = require("bcrypt");
-
 module.exports = (sequelize, DataTypes) => {
   var user = sequelize.define('user', {
     firstname: DataTypes.STRING,
@@ -11,12 +9,6 @@ module.exports = (sequelize, DataTypes) => {
   user.associate = function(models) {
     models.user.hasMany(models.workout);
   };
-  {
-
-  user.prototype.
-    var user = this.get();
-    delete user.password;
-    return user;
-  }
+  {}
   return user;
 };

@@ -25,12 +25,7 @@ Simply log on, setup a user profile and a reminder on when to be reminded
 
 # Approach Taken
 * Start the progress by buiding the basic HTML mockup!
-* Created a success message and figured out the onload logic for the message
-* Created an array for the cards for each letter of the alphabet
-* Wrote a function pull the array for alphabets and dynamically create a div for each letter
-* HARD CODE the letters to a card position for matching
-* Created cardDrop matching condition and droppable positions
-* Created a stupid basic winning condition based on the number correct cards counted 
+* 
 
 
 # Issues
