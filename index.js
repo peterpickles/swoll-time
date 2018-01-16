@@ -6,6 +6,7 @@ var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
 var passport = require('./config/passportConfig');
 var session = require('express-session');
+var db = require("./models")
 var app = express();
 
 app.set('view engine', 'ejs');
@@ -24,19 +25,47 @@ app.use(function(req, res, next){
   res.locals.alerts = req.flash();
   next();
 });
+app.use(express.static(__dirname + '/public/'));
 
 app.get('/', function(req,res) {
   // res.send('homepage coming soon!')
   res.render('./site/home');
 });
+
 app.get('/profile', isLoggedIn, function(req,res) {
-  res.render('./site/profile');
+  console.log(req.body);
+  db.workout.findAll({
+    where: {userId:req.user.id}
+  }).then(function(workout){
+    res.render('site/profile', {workouts: workout});
+  }).catch(function(err){
+    res.send(404, err);
+  });
 });
 
 app.get('/about', isLoggedIn, function(req,res) {
-  res.render('./site/about');
+  res.render('site/about');
 });
 
+app.get('/schedule', isLoggedIn, function(req,res) {
+  res.render('workouts/schedule');
+});
+
+app.get('/search', isLoggedIn, function(req, res) {
+  res.send("workouts/search");
+});
+
+app.post('/schedule', isLoggedIn, function(req,res) {
+  db.workout.create ({
+    name: req.body.exercise,
+    nextnotice: req.body.date + " " + req.body.time,
+    userId: req.user.id
+  }).then(function(workout) {
+    res.redirect ("/profile");
+  }).catch(function(err) {
+    console.log("database error", err);
+  });
+});
 
 app.use('/auth', require('./controllers/auth'));
 

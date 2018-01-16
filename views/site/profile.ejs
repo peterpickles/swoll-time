@@ -1,6 +1,24 @@
-<h2>PROFILE</h2>
-<div>
-  <h3>
-    Welcome back, <%= currentUser.firstname %>!
-  </h3>
+<div class ="transparentbox">
+	<h2>PROFILE</h2>
+	<div>
+	  <h3>
+	    Welcome back, <%= currentUser.firstname %>!
+	  </h3>
+	  <a href='#'><button type="button" class="btn btn-default btn-lng">Search for Gym to get Swole</button></a>
+	  <a href='/schedule'><button type="button" class="btn btn-default btn-lng">Schedule a Workout</button></a>
+
+	  <% if (workouts.length <=0) {%>
+	   <h2 class = "text-center">No worksouts schedule</h2>
+	  <%} else {%>
+	  <% workouts.forEach(function(item) {%>
+	  <div class="list">
+	  <br>
+	      <ul>
+	          <div><li><h4><%= item.name %></h4></li></div>
+	          <div><li><h4><%= item.nextnotice %></h4></li></div>
+	      </ul>
+		</div>
+		<% }) %>
+		<% }; %>
+	</div>
 </div>
