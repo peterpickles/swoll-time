@@ -26,6 +26,7 @@
     "express": "^4.16.2",
     "express-ejs-layouts": "^2.3.1",
     "express-session": "^1.15.6",
+    "fusion": "^1.0.0-beta",
     "nodemon": "^1.14.11",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
@@ -34,6 +35,8 @@
     "rowdy-logger": "^1.0.0",
     "sequelize": "^4.29.0",
     "sequelize-cli": "^3.2.0",
-    "twilio": "^3.11.0"
+    "twilio": "^3.11.0",
+    "yelp": "^1.0.2",
+    "yelp-fusion": "^2.0.3"
   }
 }
