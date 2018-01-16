@@ -14,15 +14,15 @@
       <ul class="nav navbar-nav navbar-right">
         <% if(!currentUser){%>
         <li>
-          <a href="/about">Login</a>
-        </li>
-        <li>
           <a href="/auth/login">Login</a>
         </li>
         <li>
           <a href="/auth/signup">Sign Up</a>
         </li>
         <% }else{ %>
+        <li>
+          <a href="/site/profile">Profile</a>
+        </li>
         <li>
           <a href="/auth/logout">Logout</a>
         </li>

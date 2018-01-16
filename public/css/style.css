@@ -1,6 +1,16 @@
 body {
 	background: black;
-	background: url(http://wallsdesk.com/wp-content/uploads/2016/10/Gym-Background-.jpg);
+	background: url(http://wallsdesk.com/wp-content/uploads/2016/10/Gym-Background-.jpg) no-repeat;
 	background-size: cover;
+	overflow: auto;
+
+}
+
+ul {
+	color: black;
+	text-align: center;
+}
+
+.list {
 
 }
