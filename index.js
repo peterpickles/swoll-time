@@ -33,6 +33,9 @@ app.get('/profile', isLoggedIn, function(req,res) {
   res.render('./site/profile');
 });
 
+app.get('/about', isLoggedIn, function(req,res) {
+  res.render('./site/about');
+});
 
 
 app.use('/auth', require('./controllers/auth'));
