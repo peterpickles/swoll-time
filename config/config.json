@@ -1,6 +1,6 @@
 {
   "development": {
-    "database": "swoll_time",
+    "database": "swole-time",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "operatorsAliases": "false"

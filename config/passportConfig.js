@@ -1,36 +1,32 @@
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
-var facebookStrategy = require('passport-facebook').Strategy;
 var db = require('../models');
-require('dotenv').config();
 
 passport.serializeUser(function(user, callback){
   callback(null, user.id);
 });
-
-passport.deserializeUser(function(id, callback){
-  db.user.findById(id).then(function(user){
+passport.deserializeUser(function(id, callback) {
+  db.user.findById(id).then(function(user) {
     callback(null, user);
-  }).catch(function(err){
+  }).catch(function(err) {
     callback(err, null);
   });
 });
-
 passport.use(new localStrategy({
   usernameField: 'email',
   passwordField: 'password'
-}, function(email, password, callback){
+}, function(email, password, callback) {
   db.user.findOne({
-    where: { email: email }
-  }).then(function(user){
+    where: { email:email}
+  }).then(function(user) {
     if(!user || !user.isValidPassword(password)){
       callback(null, false);
     }
     else {
       callback(null, user);
     }
-  }).catch(function(err){
-    callback(err, null);
+  }).catch(function(err) {
+    callback(err,null);
   });
 }));
 module.exports = passport;

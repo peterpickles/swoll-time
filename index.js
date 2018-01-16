@@ -6,12 +6,10 @@ var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
 var passport = require('./config/passportConfig');
 var session = require('express-session');
-var twilio = require("twilio");
 var app = express();
 
-
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended:false}));
 app.use(ejsLayouts);
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -27,12 +25,16 @@ app.use(function(req, res, next){
   next();
 });
 
-app.get("/", function(req, res){
-	res.render("./site/home");
+app.get('/', function(req,res) {
+  // res.send('homepage coming soon!')
+  res.render('./site/home');
 });
-app.get("/profile", isLoggedIn, function(req, res){
-	res.render("profile");
+app.get('/profile', isLoggedIn, function(req,res) {
+  res.render('./site/profile');
 });
+
+
+
 app.use('/auth', require('./controllers/auth'));
 
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 3000);
