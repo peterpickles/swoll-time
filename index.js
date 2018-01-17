@@ -69,6 +69,6 @@ app.post('/schedule', isLoggedIn, function(req,res) {
 
 app.use('/auth', require('./controllers/auth'));
 
-app.listen(process.env.PORT || 3000);
+var server = app.listen(process.env.PORT || 3000);
 
-// module.export = server;
+module.export = server;
