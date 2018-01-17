@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var express = require('express');
 var ejsLayouts = require('express-ejs-layouts');
 var flash = require('connect-flash');
-var isLoggedIn = require('./middleware/isloggedin');
+var isLoggedIn = require('./middleware/loggedin');
 var passport = require('./config/passportConfig');
 var session = require('express-session');
 var db = require("./models")
@@ -70,3 +70,5 @@ app.post('/schedule', isLoggedIn, function(req,res) {
 app.use('/auth', require('./controllers/auth'));
 
 app.listen(process.env.PORT || 3000);
+
+// module.export = server;
