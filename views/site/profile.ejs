@@ -14,9 +14,11 @@
 	  <div class="list">
 	  <br>
 	      <ul>
-	          <div><li><h4><%= item.name %></h4></li></div>
-	          <div><li><h4><%= item.nextnotice %></h4></li></div>
-	      </ul>
+	          <li><h4><%= item.name %></h4></li>
+	          <li><h4><%= item.nextnotice %></h4></li>
+				</ul>
+					<!-- <button className="btn-xs btn-danger pull-right">X</button> -->
+					<a href="/<%=workouts.id%>" class="btn btn-danger glyphicon glyphicon-trash delete-workout"></a>
 		</div>
 		<% }) %>
 		<% }; %>

@@ -1,4 +1,4 @@
-$('.delete-course').click(function(e) {
+$('.delete-workout').click(function(e) {
     e.preventDefault();
     $.ajax({
       url: $(this).attr('href'),

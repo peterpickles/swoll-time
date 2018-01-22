@@ -12,6 +12,7 @@ var app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(ejsLayouts);
+app.use(express.static(__dirname + '/public/'));
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
@@ -25,7 +26,6 @@ app.use(function(req, res, next){
   res.locals.alerts = req.flash();
   next();
 });
-app.use(express.static(__dirname + '/public/'));
 
 app.get('/', function(req,res) {
   // res.send('homepage coming soon!')
@@ -37,7 +37,7 @@ app.get('/profile', isLoggedIn, function(req,res) {
   db.workout.findAll({
     where: {userId:req.user.id}
   }).then(function(workout){
-    res.render('site/profile', {workouts: workout});
+    res.render('site/profile.ejs', {workouts: workout});
   }).catch(function(err){
     res.send(404, err);
   });
