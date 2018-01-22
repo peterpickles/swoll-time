@@ -14,11 +14,17 @@
 	  <div class="list">
 	  <br>
 	      <ul>
+						<li><h4><%= item.id %></h4></li>
 	          <li><h4><%= item.name %></h4></li>
 	          <li><h4><%= item.nextnotice %></h4></li>
 				</ul>
 					<!-- <button className="btn-xs btn-danger pull-right">X</button> -->
-					<a href="/<%=workouts.id%>" class="btn btn-danger glyphicon glyphicon-trash delete-workout"></a>
+					<form class="delete-workout" action="./profile/<%= item.id %>">
+						<button type="submit" class="btn btn-danger">
+							Delete Workout
+						</button>
+					</form>
+					<!-- <a href="./workouts/<%=item.id%>" class="btn btn-danger glyphicon glyphicon-trash delete-workout"></a> -->
 		</div>
 		<% }) %>
 		<% }; %>

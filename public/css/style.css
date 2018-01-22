@@ -7,10 +7,11 @@ body {
 
 }
 
-ul {
-	color: black;
-}
+
 
 .list {
 	background: gray;
+}
+ul {
+	color: black;
 }
