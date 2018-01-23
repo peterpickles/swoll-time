@@ -6,7 +6,6 @@ module.exports = (sequelize, DataTypes) => {
     nextnotice: DataTypes.DATE
   });
   workout.associate = function(models) {
-    // models.workout.belongsTo(models.user, {foreignKey: 'userId', targetKey: 'id'});
   };
   return workout;
 };

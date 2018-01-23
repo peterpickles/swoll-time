@@ -12,11 +12,6 @@ router.post('/login', passport.authenticate('local', {
   falureRedirect: '/auth/login',
   failureFlash: 'Failed!'
 }));
-// router.post('/login', function(req,res) {
-//   console.log('req.body is', req.body);
-//   res.send('login post route - coming soon');
-// });
-
 router.get('/signup', function(req, res){
   res.render('auth/signup');
 });
@@ -49,7 +44,6 @@ router.post('/signup', function(req, res, next){
   });
 });
 router.get('/logout', function(req, res) {
-  // res.send('logout route coming soon');
   req.logout();
   req.flash('success', 'Successfully logged out');
   res.redirect('/');
@@ -75,7 +69,6 @@ router.get('/signup', function(req, res){
 });
 router.post('/signup', function(req, res, next){
   console.log('req.body is', req.body);
-  // res.send('signup post route coming soon');
   db.user.findOrCreate({
     where: { email: req.body.email },
     defaults: {
@@ -86,14 +79,12 @@ router.post('/signup', function(req, res, next){
     }
   }).spread(function(user, wasCreated){
     if(wasCreated){
-      //good job, you didn't try to make a duplicate!
-      passport.authenticate('local', {
+     passport.authenticate('local', {
         successRedirect: '/profile',
         successFlash: 'Successfully logged in'
       })(req, res, next);
     }
     else {
-      //bad job! you tried to sign up when you should log in
       req.flash('error', 'Email already exists');
       res.redirect('/auth/login');
     }
@@ -103,7 +94,6 @@ router.post('/signup', function(req, res, next){
   });
 });
 router.get('/logout', function(req, res) {
-  // res.send('logout route coming soon');
   req.logout();
   req.flash('success', 'Successfully logged out');
   res.redirect('/');
