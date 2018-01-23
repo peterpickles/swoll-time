@@ -3,7 +3,7 @@ var express = require('express');
 var passport = require('../config/passportConfig');
 var db = require('../models');
 var router = express.Router();
-var isLoggedIn = require('../middleware/isLoggedIn');
+var isLoggedIn = require('../middleware/loggedIn');
 var yelp = require('yelp-fusion');
 var client = yelp.client(process.env.API_KEY);
 
@@ -21,30 +21,31 @@ function yelpSearch(searchTerm, location, callback){
     });
   }
 
-router.post('/active', function(req, res) {
-    console.log(req.body);
-    yelpSearch(req.body.course, 'Seattle', function(businesses){
-      res.render('event/active', {businesses: businesses});
-    });
+router.get('/schedule', function(req, res) {
+    console.log('find rest route reach');
+    res.render('event/schedule', {businesses: [null]});
   });
 
-//delete route to get events off profile page
+//This will post the yelp results to 
+router.post('/search', function(req, res) {
+    console.log(req.body);
+    yelpSearch(req.body.gym, 'Seattle', function(businesses){
+      res.render('workouts/search', {businesses: businesses});
+    });
+});
+
+//delete route to get workouts off profile page
 router.delete('/:id', function(req, res) {
-    console.log('delete Route ID = ', req.params.id);
-    db.schedule.findOne({
-      where: {id: req.params.id}
-    }).then(function(schedule){
-      db.schedule.destroy({
+      db.workout.destroy({
         where:{
           id: req.params.id}
         }).then(function(deleted) {
           console.log('deleted = ', deleted);
           res.send('all good');
-        }).catch(function(err) {
+    }).catch(function(err) {
           console.log('error happend', err);
           res.send('failed', err);
-        });
-      });
     });
+});
 
 module.exports = router;

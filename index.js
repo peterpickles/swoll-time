@@ -68,6 +68,7 @@ app.post('/schedule', isLoggedIn, function(req,res) {
 });
 
 app.use('/auth', require('./controllers/auth'));
+app.use('/workouts', require('./controllers/workouts'));
 
 var server = app.listen(process.env.PORT || 3000);
 
