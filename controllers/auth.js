@@ -70,11 +70,6 @@ router.post('/login', passport.authenticate('local', {
   falureRedirect: '/auth/login',
   failureFlash: 'Failed!'
 }));
-// router.post('/login', function(req,res) {
-//   console.log('req.body is', req.body);
-//   res.send('login post route - coming soon');
-// });
-
 router.get('/signup', function(req, res){
   res.render('auth/signup');
 });

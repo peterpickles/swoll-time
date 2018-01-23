@@ -1,11 +1,8 @@
 <div class ="transparentbox">
 	<h2>PROFILE</h2>
-	<div>
-	  <h3>
-	    Welcome back, <%= currentUser.firstname %>!
-	  </h3>
-	  <a href='#'><button type="button" class="btn btn-default btn-lng">Search for Gym to get Swole</button></a>
-	  <a href='/schedule'><button type="button" class="btn btn-default btn-lng">Schedule a Workout</button></a>
+	<div>  
+		<h3>Welcome back, <%= currentUser.firstname %>!</h3>
+	  <a href='/schedule'><button type="button" class="btn btn-default btn-lng">Schedule a Workout or Look For a Gym</button></a>
 
 	  <% if (workouts.length <=0) {%>
 	   <h2 class = "text-center">No worksouts schedule</h2>
@@ -17,12 +14,6 @@
 	          <li><h4><%= item.name %></h4></li>
 	          <li><h4><%= item.nextnotice %></h4></li>
 				</ul>
-					<!-- <button className="btn-xs btn-danger pull-right">X</button> -->
-					<!-- <form class="delete-workout" action="<%= item.id %>">
-						<button type="submit" class="btn btn-danger">
-							Delete Workout
-						</button>
-					</form> -->
 					<a href="/workouts/<%=item.id%>" class="btn btn-danger glyphicon glyphicon-trash delete-workout"></a>
 		</div>
 		<% }) %>

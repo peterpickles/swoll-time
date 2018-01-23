@@ -12,21 +12,35 @@ body {
 	background-color: rgba(255, 255, 255, .8);
 	border: 2px solid black;
 	text-align: center;
-	font-family: 'Pontano Sans', sans-serif;
 	font-weight: bold;
 	color: #00000;
 }
 
 .form-control{
-	font-family: 'Pontano Sans', sans-serif;
 	font-weight: bold;
 	color: #00000;
 }
 
-.list {
+.logo{
+	height: 80px;
+	width: 80px;
 }
 
-li{
-	color: black;
-	listing-style: none
+.yelpImg{
+	height: 400px;
+	width: 400px;
+	padding-bottom: 10px;
+}
+.list {
+	list-style: none;
+}
+footer {
+	text-align: center;
+	z-index: 99;
+    position: fixed;
+    height: 30px;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    font-size: 17px;
 }
