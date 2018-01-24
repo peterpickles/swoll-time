@@ -6,7 +6,7 @@ var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/loggedin');
 var passport = require('./config/passportConfig');
 var session = require('express-session');
-var db = require("./models");
+var db = require("./models")
 var app = express();
 
 app.set('view engine', 'ejs');
@@ -70,6 +70,6 @@ app.post('/schedule', isLoggedIn, function(req,res) {
 app.use('/auth', require('./controllers/auth'));
 app.use('/workouts', require('./controllers/workouts'));
 
-app.listen(process.env.PORT || 3000);
+var server = app.listen(process.env.PORT || 3000);
 
-
+module.export = server;
