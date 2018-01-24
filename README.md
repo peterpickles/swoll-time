@@ -7,43 +7,34 @@ Have an excercise that you need a stronger reminder for?
 Simply log on, setup a user profile and schedule it so you don't forget!
 
 ## Planning
-
+User Stories:
 As a out-of-shape-person, I need to schedule my workouts, so I won't forget them
 
-This 
-
-## Technical Requirements
-* 
-*
-*
-*
-*
-*
+![Frame sketch](public/img/planning.jpg) 
 
 ## Technologies Used
 * Node.js
 * Express
 * Sequelize
 * postgres
-* HTML/CSS
+* HTML/CSS (Boot Strap framework)
+* Yelp Fusion API
 
 # Approach Taken
 * Start the progress by buiding the basic HTML mockup!
-* 
+* Create database and models based on the sketches
+* Pre-populate the database with mocked data
+* Build the client side db get calls (Get routes)
+* Build the ejs data calls to display the mocked data
+* Flesh out the database POST routes
 
 
 # Issues
-* Learning jquery
-* Originally I had a combination of vanilla javascript and Jquery on my page and it was getting hard to integrate it so I went with jquery to simpilify the process!
-* Matching and comparing arrays are hard, my design was to originally pull a word, split the string into just characters, dynamically generate the letters based on the character array and so Lauren only has those letters to chose from.  YEA... that didn't work which led to me hardcoding the card positions
-* The winning condition is not complete, I can still drag cards
+* Understanding routes.... like actually understanding them.  Referencing routes and links and understanding how to data passes back and forth between the frontend vs. backend
+* 
 
 # Unsolved Problems
-
+* Fleshing the out how to make the twilio API work with the datasets in my db
 
 # Next Steps
-* Add music
-* Fix winning condition
-* Add compare array function and figure out how to dynamically display divs based on the word
-* add roads
-* additional styling
+* Do some additional research on the twilio API and find out how to find a solution that will let me send a text in the future.
