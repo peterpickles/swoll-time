@@ -6,7 +6,7 @@ var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/loggedin');
 var passport = require('./config/passportConfig');
 var session = require('express-session');
-var db = require("./models")
+var db = require("./models");
 var app = express();
 
 app.set('view engine', 'ejs');
