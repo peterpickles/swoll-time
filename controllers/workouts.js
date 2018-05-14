@@ -29,7 +29,7 @@ router.get('/schedule', function(req, res) {
 //This will post the yelp results to 
 router.post('/search', function(req, res) {
     console.log(req.body);
-    yelpSearch(req.body.gym, 'Seattle', function(businesses){
+    yelpSearch(req.body.gym, 'Tacoma', function(businesses){
       res.render('workouts/search', {businesses: businesses});
     });
 });
