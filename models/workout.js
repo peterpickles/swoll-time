@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER,
     nextnotice: DataTypes.DATE
   });
-  workout.associate = function(models) {
+  workout.associate = function (models) {
   };
   return workout;
 };
